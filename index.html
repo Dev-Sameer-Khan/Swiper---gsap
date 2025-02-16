@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #000000;
+      color: wheat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .swiper-slide img {
+      display: block;
+      /* width: 100%;
+      height: 100%; */
+      object-fit: cover;
+    }
+  </style>
+<body>
+
+    <div class="main w-full h-screen bg-black">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="img w-[20%] rounded mb-4" src="https://images.unsplash.com/photo-1739312023925-19eca8ca00aa?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <h1 class="text">Lorem ipsum dolor sit amet.</h1>
+              </div>
+              <div class="swiper-slide">
+                <img class="img w-[20%] rounded mb-4" src="https://images.unsplash.com/photo-1739382122928-589c2221853c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <h1 class="text">Lorem ipsum dolor sit amet.</h1>
+              </div>
+              <div class="swiper-slide">
+                <img class="img w-[20%] rounded mb-4" src="https://images.unsplash.com/photo-1739614621579-8f8f396c7412?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <h1 class="text">Lorem ipsum dolor sit amet.</h1>
+              </div>
+              <div class="swiper-slide">
+                <img class="img w-[20%] rounded mb-4" src="https://images.unsplash.com/photo-1739629658585-fec77f042f90?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <h1 class="text">Lorem ipsum dolor sit amet.</h1>
+              </div>
+              <div class="swiper-slide">
+                <img class="img w-[20%] rounded mb-4" src="https://images.unsplash.com/photo-1739382445469-9b86a88a2fb2?q=80&w=1633&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <h1 class="text">Lorem ipsum dolor sit amet.</h1>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        
+          <!-- Swiper JS -->
+          <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+          <!-- GSAP JS -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    </div>
+    
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop : true,
+            grabCursor: true,
+          pagination: {
+            el: ".swiper-pagination",
+            dynamicBullets: true,
+          }
+          ,on: {
+      slideChangeTransitionStart: function () {
+        let activeSlide = this.slides[this.activeIndex];
+        let text  = document.querySelectorAll(".text")
+        let img  = document.querySelectorAll(".img")
+        gsap.from(
+          text,{
+            x : -500,
+            opacity : 0,
+            duration : 0.5,
+            delay : 0.5
+          }
+        );
+        gsap.from(
+          img,{
+            x : -1000,
+            opacity : 0,
+            duration : 1
+          }
+        );
+      },
+    }
+        });
+      </script>
+</body>
+</html>
